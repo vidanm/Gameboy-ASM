@@ -1,0 +1,33 @@
+Gameboy RAM : $C000 jusqu'à $E000
+RAM dans les cartouches : $A000 jusqu'à $BFFF
+
+
+prostrat pour stocker des valeurs : donner une adresse a la premiere et stocker les autres à la suite
+Exemple:
+Position equ $c200 ; 2 Values 
+SpeedVector equ Position+2 ; 2 Values
+CharacterHP equ SpeedVector+2 ; 1 Value
+CharacterMP equ CharacterHP+1 ; 1 Value
+
+
+
+Puis pour ecrire le vecteur (5,3) dans SpeedVector on peut faire:
+
+ld a, 5
+ld [SpeedVector], a
+ld a, 3
+ld [SpeedVector+1], a
+
+
+
+On peut aussi réserver ses adresses dans une section :
+
+SECTION "Some_variable", WRAN0[$C200]
+Position: DS 2
+SpeedVector: DS 2
+CharacterHP: DS 1
+CharacterMP: DS 1
+
+Gingerbread reserve de la ram pour les sprites donc la RAM utilisable commence a $C200
+Pour display une image il faudra d'abord copier les données des tiles dans la section des tiles de la
+VRAM. Il y'a des functions GingerBread pour ca
