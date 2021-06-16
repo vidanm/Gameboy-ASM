@@ -28,6 +28,4 @@ SpeedVector: DS 2
 CharacterHP: DS 1
 CharacterMP: DS 1
 
-Gingerbread reserve de la ram pour les sprites donc la RAM utilisable commence a $C200
-Pour display une image il faudra d'abord copier les données des tiles dans la section des tiles de la
-VRAM. Il y'a des functions GingerBread pour ca
+
